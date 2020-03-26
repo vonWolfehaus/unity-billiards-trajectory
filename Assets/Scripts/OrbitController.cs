@@ -7,19 +7,19 @@ public class OrbitController:MonoBehaviour {
 
 	public float distance = 20f;
 	public float xSpeed = 6.0f;
-    public float ySpeed = 70.0f;
+	public float ySpeed = 70.0f;
 	public float distanceMin = 1f;
 	public float distanceMax = 30f;
 
 	float yMinLimit = 10f;
 	float yMaxLimit = 80f;
 	float x = 0.0f;
-    float y = 0.0f;
+	float y = 0.0f;
 
 	void Start() {
 		Vector3 angles = transform.eulerAngles;
-        x = angles.y;
-        y = angles.x;
+		x = angles.y;
+		y = angles.x;
 	}
 
 	void LateUpdate() {
@@ -41,10 +41,10 @@ public class OrbitController:MonoBehaviour {
 	}
 
 	public static float ClampAngle(float angle, float min, float max) {
-        if (angle < -360F)
-            angle += 360F;
-        if (angle > 360F)
-            angle -= 360F;
-        return Mathf.Clamp(angle, min, max);
-    }
+		if (angle < -360F)
+			angle += 360F;
+		if (angle > 360F)
+			angle -= 360F;
+		return Mathf.Clamp(angle, min, max);
+	}
 }
