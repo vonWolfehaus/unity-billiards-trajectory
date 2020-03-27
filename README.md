@@ -1,4 +1,4 @@
-![Screenshot](trajectory-prediction.jpg)
+![](trajectory-prediction.jpg | width=400)
 
 Built with Unity 2019.3.7 with these extra packages:
 - ProBuilder
