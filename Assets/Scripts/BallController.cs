@@ -15,8 +15,11 @@ public class BallController:MonoBehaviour {
 
 	public void Reset() {
 		// sync the hidden body with what the player is seeing in the active scene
-		if (simulant)
+		if (simulant) {
 			simulant.hiddenBody.position = transform.position;
+			simulant.hiddenBody.velocity = Vector3.zero;
+			simulant.hiddenBody.angularVelocity = Vector3.zero;
+		}
 	}
 
 	public void UpdateTrajectory(Vector3 force, int iterations, float physicsTimescale = 1) {
