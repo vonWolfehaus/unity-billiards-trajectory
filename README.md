@@ -1,3 +1,5 @@
+![Screenshot](trajectory-prediction.jpg)
+
 Built with Unity 2019.3.7 with these extra packages:
 - ProBuilder
 - ProGrids (preview)

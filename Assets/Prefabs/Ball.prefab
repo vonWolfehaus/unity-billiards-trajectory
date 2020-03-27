@@ -121,8 +121,8 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4355309329291176389}
   m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_CastShadows: 2
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -131,7 +131,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,7 +163,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5894737
+        value: 0.27368546
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -206,7 +206,7 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    shadowBias: 0.5
+    shadowBias: 1
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
@@ -222,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd20f6b92371d3b4b8f8db3542a92c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenBody: {fileID: 0}
 --- !u!114 &3114686819185214254
 MonoBehaviour:
   m_ObjectHideFlags: 0
