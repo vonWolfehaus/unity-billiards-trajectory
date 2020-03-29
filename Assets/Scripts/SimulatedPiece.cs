@@ -10,24 +10,23 @@ public class SimulatedPiece:MonoBehaviour {
 
 	private PhysicsScene hiddenPhysicsScene;
 	private Rigidbody activeBody;
+	private List<Vector3> points;
 
 
 	/**************************************
 	 *	ACTIONS
 	 */
 
-	public Vector3[] SimulateImpulse(Vector3 force, int iterations, float physicsTimescale = 1) {
+	public List<Vector3> SimulateImpulse(Vector3 force, int iterations, float physicsTimescale = 1) {
 		// with the board setup, we apply the force that will be applied to the real one if they launch it
 		hiddenBody.AddForce(force, ForceMode.Impulse);
-		// create a new array to store all the positions the hiddenBody generates as it travels in the sim
-		// NOTE: in a production release you will need to use an object pool or pre-allocate the array to a fixed length.
-		// never create new objects during runtime, or it will have a major performance impact
-		Vector3[] points = new Vector3[iterations];
+		points.Clear();
 		for (int i = 0; i < iterations; i++) {
 			// the magic line: run the hidden sim for iterations and save the results
 			hiddenPhysicsScene.Simulate(Time.fixedDeltaTime * physicsTimescale);
 			// now store the new position to use on the LineRenderer
-			points[i] = hiddenBody.position;
+			// points[i] = hiddenBody.position;
+			points.Add(hiddenBody.position);
 		}
 
 		return points;
@@ -64,5 +63,6 @@ public class SimulatedPiece:MonoBehaviour {
 		}
 		// now move the clone to the hidden physics scene where the sim will use it to create our trajectory prediction
 		SceneManager.MoveGameObjectToScene(go, hiddenScene);
+		points = new List<Vector3>();
 	}
 }

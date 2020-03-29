@@ -7,6 +7,7 @@ public class BallController:MonoBehaviour {
 	LineRenderer lineRenderer;
 	SimulatedPiece simulant;
 	TrajectoryController trajController;
+	List<Vector3> simplifiedPoints = new List<Vector3>();
 
 
 	/**************************************
@@ -23,10 +24,13 @@ public class BallController:MonoBehaviour {
 	}
 
 	public void UpdateTrajectory(Vector3 force, int iterations, float physicsTimescale = 1) {
-		Vector3[] points = simulant.SimulateImpulse(force, iterations, physicsTimescale);
-		lineRenderer.positionCount = iterations;
-		lineRenderer.SetPositions(points);
-		lineRenderer.Simplify(0.01f);
+		// run the sim
+		List<Vector3> points = simulant.SimulateImpulse(force, iterations, physicsTimescale);
+		// reduce the number of points to use in the line before loading them in
+		LineUtility.Simplify(points, 0.01f, simplifiedPoints);
+		// set the line
+		lineRenderer.positionCount = simplifiedPoints.Count;
+		lineRenderer.SetPositions(simplifiedPoints.ToArray());
 	}
 
 	public void OnSelect() {
