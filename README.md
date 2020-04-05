@@ -4,7 +4,7 @@ Built with Unity 2019.3.7 with these extra packages:
 - ProBuilder
 - ProGrids (preview)
 
-I exposed controls in the `TrajectoryController` script of the GameController object. Changing any of the force variables will update the trajectory in the game view.
+I exposed Inspector controls in the `TrajectoryController` script of the GameController object. Changing any of the force variables there in the Inspector will update the trajectory in the game view.
 
 Controls:
 - Left-click on a ball to select it and see its trajectory
